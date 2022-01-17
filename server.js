@@ -21,7 +21,7 @@ app.post("/api/fileanalyse", upload.single("upfile"), (req, res) => {
 	let size = req.file.size;
 
 	// delete temporary file
-	fs.rmSync(__dirname + "/uploads/" + req.file.filename);
+	fs.unlinkSync(__dirname + "/uploads/" + req.file.filename);
 
 	res.json({ name, type, size });
 })
